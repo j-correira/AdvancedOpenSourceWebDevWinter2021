@@ -1,0 +1,7 @@
+MongoDB
+    --Databases favoriteFood
+        ---Collections (Actual Databases)
+            Users
+            Index
+            Playedata
+
