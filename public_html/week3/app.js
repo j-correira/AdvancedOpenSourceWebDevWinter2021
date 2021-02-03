@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 var app = express()
 var path = require('path')
 var bodyparser = require('body-parser')
+var connect = require('./routes/connect')
 
 //Sets up Middleware to use in app
 app.use(bodyparser.json())
@@ -10,13 +11,7 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(express.json())
 
 //Connect to MongoDb Database using Mongoose
-mongoose.connect('mongodb://localhost:27017/favoriteFood',{
-    useNewUrlParser:true
-}).then(function(){
-    console.log("Connected to Database");
-}).catch(function(err){
-    console.log(err);
-})
+app.use('/connect',connect)
 
 //Load in Database Templates or Schema
 require('./models/Food')
